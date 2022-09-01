@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-toolbar color="tertiary">
+
+    <ion-title class="ion-text-center" >
+      Details about me
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="closeMoadal()" >
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-avatar >
+    <img src="assets\images\me again - Circular-modified.png"/>
+  </ion-avatar>
+
+  <ion-item>
+
+    <p>
+      Mr Bilel Mlaouhia is a Tunisian, full stack developer, speaking natively Arabic, fluent English and French
+    </p>
+  </ion-item>
+ <ion-item> <strong>Technologies:</strong></ion-item>
+
+    <ion-item position="floating">
+      <ion-list>
+        <ion-label *ngFor="let t of myInformations.technologies" >
+          {{t}}
+        </ion-label>
+      </ion-list>
+    </ion-item>
+
+    <ion-item> <strong>Frameworks:</strong></ion-item>
+
+    <ion-item position="floating">
+      <ion-list>
+        <ion-label *ngFor="let f of myInformations.frameworks" >
+          {{f}}
+        </ion-label>
+      </ion-list>
+    </ion-item>
+
+    <ion-item> <strong>Architecture:</strong></ion-item>
+
+    <ion-item position="floating">
+      <ion-list>
+        <ion-label *ngFor="let a of myInformations.architecture" >
+          {{a}}
+        </ion-label>
+      </ion-list>
+    </ion-item>
+
+
+</ion-content>

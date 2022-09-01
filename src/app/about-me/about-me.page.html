@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">about me</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-card >
+<ion-card-title style="padding-left: 12px; padding-top:20px ;">
+ <strong> who am I ?</strong>
+</ion-card-title>
+  <ion-card-header>
+    <ion-card-subtitle>
+
+      <ion-chip (click)="openInformations()" >
+        <ion-avatar>
+          <ion-img src="assets\images\me again - Circular-modified.png"></ion-img>
+        </ion-avatar>
+        <ion-label>{{bilel.name}}</ion-label>
+      </ion-chip>
+
+    </ion-card-subtitle>
+    <ion-card-title>
+      {{bilel.speciality}}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-list>
+
+      <ion-item  >
+        <ion-icon name="mail-outline" color="danger"> </ion-icon>
+        <ion-label (click)="contactMe()"  >  {{bilel.email}}</ion-label>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="logo-whatsapp" color="success"></ion-icon>
+        <ion-label (click)="callMe()"> {{bilel.tel}} </ion-label>
+      </ion-item>
+
+</ion-list>
+</ion-card>
+
+</ion-content>

@@ -18,8 +18,8 @@ export class StorageService {
     }).catch(err=>console.log('db error: '+err)
     );
   }
-  // public addToDb(dbName: string, val:any): void{
-  //   this.sqlObj.openDBs().
-  // }
+  public addToDb(dbName: string, val: any): void{
+   // this.sqlObj.openDBs().
+  }
 
 }

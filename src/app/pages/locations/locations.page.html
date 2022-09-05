@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>locations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <form (ngSubmit)="onAddNewLocation(f.value)" #f="ngForm">
+      <ion-label>add new location</ion-label>
+    <ion-input type="text" slot="start" name="title" #title ngModel></ion-input>
+    <ion-buttons slot="start">
+      <ion-button type="submit">
+        <ion-icon slot="end" name="add"></ion-icon>
+       Add
+      </ion-button>
+    </ion-buttons>
+    </form>
+  </ion-item>
+<ion-list>
+  <ion-item *ngFor="let l of locations">
+    <ion-label> {{l.title}} </ion-label>
+    <ion-icon slot="end" name="close" (click)="onRemoveLocation(l)"></ion-icon>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MenuComponent } from '../pages/menu/menu.component';
 
 import { HomePage } from './home.page';
 
@@ -10,14 +9,13 @@ const routes: Routes = [
     component: HomePage
   },
   {
-    path:'menu',
-    component: MenuComponent
+    path: 'register',
+    loadChildren: () => import('../pages/register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 
 @NgModule({
   declarations:[
-    MenuComponent
   ],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

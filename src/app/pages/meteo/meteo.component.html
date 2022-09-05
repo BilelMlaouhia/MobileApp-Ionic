@@ -9,46 +9,49 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-<!-- <ion-card>
-  <ion-item>
-   Date: {{cityWeather.dt*1000 | date:'dd/MM/yyyy HH:mm' }}
-   Date: {{cityWeather.dt*1000 | date:'medium' }}
-   </ion-item>
-</ion-card> -->
+
   <ion-card>
-      <ion-item>
-        <ion-label position="floating">City:</ion-label>
-        <ion-input #i [value]="cityWeather.name"></ion-input>
-        <ion-button fill="outline" slot="end" (click)="onGetWeather(i.value)">Go</ion-button>
-      </ion-item>
+
+        <form #f>
+          <ion-item>
+            <ion-label position="floating">City:</ion-label>
+            <ion-input name="i" [value]="cityWeather.name"></ion-input>
+          <ion-button fill="outline" slot="end" (click)="onGetWeather(f.i.value)">Go</ion-button>
+          </ion-item>
+        </form>
+
 
   </ion-card>
   <div >
-    <ion-card>
+    <ion-card *ngIf="cityWeather.name!==''">
       <ion-card-content >
 
         <ion-list >
+          <ion-item>
+            <strong>date: {{cityWeather.dt | date:'dd/MM/yyyy HH:mm' }}</strong>
 
+
+            </ion-item>
       <ion-item>
-        <ion-label>temperature: {{cityWeather.temperature}} °c </ion-label>
+        <ion-label> <strong> temperature:</strong> {{cityWeather.temperature}} °c </ion-label>
 
       </ion-item>
       <ion-item>
-        <ion-label>humidity: {{cityWeather.humidity}} %</ion-label>
+        <ion-label> <strong> humidity: </strong>  {{cityWeather.humidity}} %</ion-label>
         <ion-img src="assets\weather\{{weatherIconURL}} "></ion-img>
       </ion-item>
       <ion-item>
-        <ion-label>longtitude: {{cityWeather.longtitude}} </ion-label>
+        <ion-label> <strong> longtitude: </strong>  {{cityWeather.longtitude}} </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>latitude: {{cityWeather.latitude}} </ion-label>
+        <ion-label> <strong>latitude: </strong>  {{cityWeather.latitude}} </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>weather: {{cityWeather.weather}} </ion-label>
+        <ion-label> <strong>weather: </strong>  {{cityWeather.weather}} </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label> description:  </ion-label>
-         {{cityWeather.description}}
+        <ion-label> <strong>description:</strong>  {{cityWeather.description}}   </ion-label>
+
       </ion-item>
      </ion-list>
 

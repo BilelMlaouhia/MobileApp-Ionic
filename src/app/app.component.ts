@@ -16,7 +16,7 @@ export class AppComponent {
   ];
   authList=[
     {title:'meteo',url:'/login/meteo',icon:'sunny-outline'},
-    {title:'gallory',url:'/login/gallory',icon:'images-outline'},
+    {title:'gallery',url:'/login/gallery',icon:'images-outline'},
     {title:'locations',url:'/login/locations',icon:'locate-outline'},
     {title:'logout',url:'/logout',icon:'log-out-outline'}
   ];

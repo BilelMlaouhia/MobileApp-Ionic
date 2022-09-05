@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { GalloryComponent } from '../pages/gallory/gallory.component';
-import { LocationsComponent } from '../pages/locations/locations.component';
-import { MeteoComponent } from '../pages/meteo/meteo.component';
+
 
 import { LoginPage } from './login.page';
 
@@ -13,25 +11,21 @@ const routes: Routes = [
     component: LoginPage
   },
   {
-    path:'gallory',
-    component: GalloryComponent,
-
+    path: 'gallery',
+    loadChildren: () => import('../pages/gallery/gallery.module').then( m => m.GalleryPageModule)
   },
   {
-    path:'locations',
-    component: LocationsComponent
+    path: 'locations',
+    loadChildren: () => import('../pages/locations/locations.module').then( m => m.LocationsPageModule)
   },
   {
-    path:'meteo',
-    component: MeteoComponent
+    path: 'meteo',
+    loadChildren: () => import('../pages/meteo/meteo.module').then( m => m.MeteoPageModule)
   }
 ];
 
 @NgModule({
   declarations:[
-    MeteoComponent,
-    LocationsComponent,
-    GalloryComponent
   ],
   imports: [RouterModule.forChild(routes), ReactiveFormsModule],
   exports: [RouterModule]

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, CheckboxChangeEventDetail } from '@ionic/angular';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -12,6 +10,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginPage implements OnInit {
 
   checkBox=false;
+
 
   constructor(private router: Router, private authService: AuthenticationService) {
     this.checkBox=false;

@@ -10,17 +10,19 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class AppComponent {
     auth=false;
+    toggleCheked=false;
+    m='sunny';
   menuList=[
-    {title:'home',url:'/home',icon:'home-outline'},
-    {title:'about me',url:'/about-me',icon:'person-outline'}
+    {title:'home',url:'/home',icon:'home'},
+    {title:'about me',url:'/about-me',icon:'information-circle'}
   ];
   authList=[
-    {title:'meteo',url:'/login/meteo',icon:'sunny-outline'},
-    {title:'gallery',url:'/login/gallery',icon:'images-outline'},
-    {title:'locations',url:'/login/locations',icon:'locate-outline'},
-    {title:'logout',url:'/logout',icon:'log-out-outline'}
+    {title:'meteo',url:'/login/meteo',icon:'sunny'},
+    {title:'gallery',url:'/login/gallery',icon:'images'},
+    {title:'locations',url:'/login/locations',icon:'locate'},
+    {title:'logout',url:'/logout',icon:'log-out'}
   ];
-   loginLInk= {title:'login',url:'/login',icon:'log-in-outline'};
+   loginLInk= {title:'login',url:'/login',icon:'log-in'};
 
   constructor(private platform: Platform, private router: Router, private authService: AuthenticationService) {
     this.authService.auth.subscribe(res=>{
@@ -35,6 +37,18 @@ export class AppComponent {
     this.platform.ready().then(()=>{
       this.login();
     });
+  }
+
+  onChangeTheme(event){
+    if(event.detail.checked ){
+      document.body.classList.add('dark');
+      this.m='moon';
+    }else{
+      document.body.classList.remove('dark');
+      this.m='sunny';
+    };
+    // console.log('event stringify : '+JSON.stringify(event.detail.checked));
+    // console.log('event : '+event.detail.checked);
   }
 
   login(){

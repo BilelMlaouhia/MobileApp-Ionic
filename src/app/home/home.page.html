@@ -4,28 +4,71 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>home</ion-title>
-    <!-- <ion-icon slot="start" color="danger" name="home"></ion-icon> -->
+
+  <ion-icon name="camera"  slot="icon-only"  color="light" (click)="onTakePicture()" slot="end" size="large" class="ion-margin" ></ion-icon>
+
   </ion-toolbar>
 </ion-header>
-<!--
+
 <ion-content>
-  <ion-card>
-    <ion-card-title>
-      Informations
-    </ion-card-title>
-    <ion-card-content>
+  <ion-item>
+   <ion-text color="tertiary">
+    <h6>Welcome to MyDemo  Mobile App, this App made for demonstration of skills,for more informations visit  <a routerLink="about-me">About me</a> </h6>
+   </ion-text>
+  </ion-item>
 
-      <ion-img src="assets\images\ionic-framework.png">
+  <ion-item>
+    <form  #f="ngForm">
+  <ion-item>
+    <ion-label position="floating">Add FrameWork </ion-label>
+    <ion-input type="text" name="framName" #frameName ngModel required></ion-input>
+    <ion-icon name="add-circle" (click)="onInsertRow(f.value.framName)" size="large"  color="primary" slot="end"></ion-icon>
+  </ion-item>
+  </form>
+   </ion-item>
 
-      </ion-img>
-    </ion-card-content>
-    <ion-button (click)="buttonClicked()" expand="block" shape="round">
-      Click me
-    </ion-button>
 
-  </ion-card>
 
-</ion-content> -->
-<ion-content>
-  hello from home
+
+ <ion-list *ngIf="myData.length>0">
+  <ion-item>
+    <ion-label class="ion-text-center"><h5>Full List</h5> </ion-label>
+  </ion-item>
+
+  <ion-item *ngFor="let d of myData; let i=index">
+
+    <ion-item-sliding *ngIf="!edit[i]">
+
+      <ion-item-options side="start">
+        <ion-item-option color="primary" (click)="onEdit(i)"  >Edit</ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-label class="ion-text-center" ><strong>{{d.name}}</strong> </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="onDelelteItem(d.id)" >Delete </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+    <ion-item *ngIf="edit[i]">
+      <form  #fes="ngForm">
+        <ion-input type="text" [placeholder]="d.name"  #newName name="newName" ngModel slot="start" >
+
+        </ion-input>
+        <ion-icon name="checkmark-outline" slot="end" size="large" color="primary" (click)="onUpdateItem(fes.value.newName,d.id)" ></ion-icon>
+        <ion-icon name="close-circle" (click)="onEdit(i);onGetRows()" size="large" slot="end"  color="danger"></ion-icon>
+      </form>
+    </ion-item>
+
+  </ion-item>
+ </ion-list>
+
+
+
+
+
+
 </ion-content>

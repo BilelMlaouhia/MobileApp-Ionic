@@ -1,11 +1,20 @@
 <ion-app>
 
   <ion-menu contentId="content">
+
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title>Menu</ion-title>
+
+          <!-- <ion-title slot="start" class="ion-margin" > Mode </ion-title> -->
+
+        <ion-icon [name]="m" class="ion-margin" slot="start" size="medium"></ion-icon>
+
+          <ion-toggle color="light" slot="end" [checked]="toggleCheked" (ionChange)="onChangeTheme($event)" ></ion-toggle>
+
       </ion-toolbar>
     </ion-header>
+
+
     <ion-content>
       <ion-menu-toggle>
 

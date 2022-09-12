@@ -6,6 +6,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import {  SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,12 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [{
-    provide: RouteReuseStrategy,
-    useClass: IonicRouteStrategy
-     }],
+  providers: [
+    Camera,
+    SQLite,
+    { provide: RouteReuseStrategy,useClass: IonicRouteStrategy}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

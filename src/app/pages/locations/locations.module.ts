@@ -8,6 +8,7 @@ import { LocationsPageRoutingModule } from './locations-routing.module';
 
 import { LocationsPage } from './locations.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

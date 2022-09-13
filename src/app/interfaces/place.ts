@@ -9,5 +9,6 @@ export interface Place {
     longtitude: number;
     latitude: number;
   };
+  price?: number;
   photos?: string[];
 }

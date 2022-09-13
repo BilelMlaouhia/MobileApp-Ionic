@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import {  SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
-
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import {  SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
     HttpClientModule,
   ],
   providers: [
+    GoogleMaps,
+    Geolocation,
     Camera,
     SQLite,
     { provide: RouteReuseStrategy,useClass: IonicRouteStrategy}

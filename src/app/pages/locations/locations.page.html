@@ -9,7 +9,91 @@
 </ion-header>
 
 <ion-content>
- hello from locations
+<ion-item>
+  <ion-label (click)="onGetCurrentLocaiton()" >Get Current Location</ion-label>
+</ion-item>
+
+  <form  #f="ngForm">
+
+    <ion-row class="ion-align-items-center"  >
+
+
+      <ion-col >
+        <ion-item fill="outline" >
+    <ion-label position="floating"> Place </ion-label>
+    <ion-input type="text" name="framName" #frameName ngModel required></ion-input>
+        </ion-item>
+  </ion-col>
+
+
+    <ion-col class="ion-margin" size="2">
+    <div>
+    <ion-icon name="add-circle" (click)="onInsertRow(f.value.framName)" size="large"  color="primary" ></ion-icon>
+    </div>
+</ion-col>
+</ion-row>
+  </form>
+
+
+
+
+
+ <ion-list *ngIf="myData.length>0">
+  <ion-item>
+    <ion-label class="ion-text-center"><h5>Full List</h5> </ion-label>
+  </ion-item>
+
+  <ion-item *ngFor="let d of myData; let i=index">
+
+    <ion-item-sliding *ngIf="!edit[i]">
+
+      <ion-item-options side="start">
+        <ion-item-option color="primary" (click)="onEdit(i)"  >Edit</ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-label class="ion-text-center" ><strong>{{d.name}}</strong> </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="onDelelteItem(d.id)" >Delete </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+
+
+
+
+      <form  #fes="ngForm">
+        <ion-row class="ion-align-items-center" *ngIf="edit[i]" >
+        <ion-col size="8">
+        <ion-item fill="outline"  >
+        <ion-input type="text"   #newName name="newName" ngModel [placeholder]="d.name"  > </ion-input>
+      </ion-item>
+      </ion-col>
+
+       <ion-col >
+    <div>
+        <ion-icon name="close-circle" (click)="onEdit(i);onGetRows()" size="large" slot="end"  color="danger"></ion-icon>
+      </div>
+      </ion-col>
+
+    <ion-col  >
+      <div>
+        <ion-icon name="checkmark-done-sharp" slot="end" size="large" color="primary" (click)="onUpdateItem(fes.value.newName,d.id)" ></ion-icon>
+      </div>
+      </ion-col>
+
+     </ion-row>
+    </form>
+
+  </ion-item>
+ </ion-list>
+
+
+
+  <div #map id="map" style="height:60% ;" class="ion-margin" ></div>
 
 </ion-content>
 
